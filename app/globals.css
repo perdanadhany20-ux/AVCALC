@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-sunken: var(--sunken);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-line-ink: var(--line-ink);
+  --color-accent: var(--accent);
+  --color-warn: var(--warn);
+  --color-warn-ink: var(--warn-ink);
+  --color-ok-ink: var(--ok-ink);
+  --color-grid: var(--grid);
+  --color-border: var(--border);
+  --color-danger: var(--danger);
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk Variable", "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --bg: #f3f5f9;
+  --surface: #ffffff;
+  --sunken: #eaeef5;
+  --ink: #162033;
+  --muted: #55637a;
+  --line: #2f5da8;
+  --line-ink: #2f5da8;
+  --accent: #0e8c7f;
+  --warn: #c27400;
+  --warn-ink: #8f5500;
+  --ok-ink: #0a6b61;
+  --grid: #d6deea;
+  --border: #d6deea;
+  --danger: #b3261e;
+
+  --dg-line: #2f5da8;
+  --dg-grid: #e3e9f2;
+  --dg-accent: #0e8c7f;
+  --dg-warn: #c27400;
+  --dg-muted: #7a879b;
+  --dg-text: #162033;
+  --dg-surface: #ffffff;
+  color-scheme: light;
+}
+
+.dark {
+  --bg: #0f1a2b;
+  --surface: #14233a;
+  --sunken: #0b1424;
+  --ink: #e5ecf6;
+  --muted: #9fb0c8;
+  --line: #3a6fc4;
+  --line-ink: #8db2ee;
+  --accent: #3cc2b2;
+  --warn: #f0a43a;
+  --warn-ink: #f6bd6a;
+  --ok-ink: #5fd3c4;
+  --grid: #24354f;
+  --border: #2a3d5c;
+  --danger: #ff8a80;
+
+  --dg-line: #8db2ee;
+  --dg-grid: #1c2d47;
+  --dg-accent: #3cc2b2;
+  --dg-warn: #f0a43a;
+  --dg-muted: #7d90ad;
+  --dg-text: #e5ecf6;
+  --dg-surface: #14233a;
+  color-scheme: dark;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 2px solid var(--line-ink);
+  outline-offset: 2px;
+}
+
+.num {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
