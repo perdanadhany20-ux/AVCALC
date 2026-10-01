@@ -24,7 +24,7 @@ export type Diagram = { width: number; height: number; label: string; shapes: Sh
 
 export const TONE_HEX: Record<Tone, string> = {
   line: "#2F5DA8",
-  grid: "#D6DEEA",
+  grid: "#E8EDF5",
   accent: "#0E8C7F",
   warn: "#C27400",
   muted: "#7A879B",
