@@ -28,7 +28,7 @@ export function NumberInput({
   invalid?: boolean;
   describedBy?: string;
 }) {
-  const display = typeof value === "number" && Number.isFinite(value) ? formatInputNumber(toDisplay(value, field.quantity, units)) : "";
+  const display = typeof value === "number" && Number.isFinite(value) ? formatInputNumber(toDisplay(value, field.quantity, units), field.quantity && units === "imperial" ? 2 : 4) : "";
   const [text, setText] = useState(display);
 
   // Sinkronkan teks bila nilai kanonik berubah dari luar (reset, preset, ganti satuan).

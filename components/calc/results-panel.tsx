@@ -47,8 +47,9 @@ export function DetailRows({ rows, units }: { rows: Row[]; units: UnitSystem }) 
   return (
     <div className="grid gap-5">
       {sections.map((sec) => (
-        <dl key={sec ?? "_"} className="divide-y divide-border">
-          {sec ? <dt className="pb-1 font-display text-sm font-semibold text-line-ink">{sec}</dt> : null}
+        <div key={sec ?? "_"}>
+          {sec ? <h2 className="pb-1 font-display text-sm font-semibold text-line-ink">{sec}</h2> : null}
+          <dl className="divide-y divide-border">
           {rows
             .filter((r) => r.section === sec)
             .map((r) => {
@@ -69,7 +70,8 @@ export function DetailRows({ rows, units }: { rows: Row[]; units: UnitSystem }) 
                 </div>
               );
             })}
-        </dl>
+          </dl>
+        </div>
       ))}
     </div>
   );

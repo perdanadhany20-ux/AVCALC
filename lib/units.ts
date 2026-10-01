@@ -32,9 +32,9 @@ export function formatQ(v: number, q: Quantity, sys: UnitSystem, decimals = 2): 
 }
 
 /** Teks angka untuk kolom input: maks. 4 desimal, tanpa nol di belakang, koma desimal. */
-export function formatInputNumber(v: number): string {
+export function formatInputNumber(v: number, maxDecimals = 4): string {
   if (!Number.isFinite(v)) return "";
-  return String(Number(v.toFixed(4))).replace(".", ",");
+  return String(Number(v.toFixed(maxDecimals))).replace(".", ",");
 }
 
 /** Terima "1,5" maupun "1.5". Kosong → undefined, tidak valid → NaN. */

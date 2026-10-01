@@ -26,7 +26,7 @@ export const ceilingSpeaker = defineCalc({
     { kind: "number", name: "lengthM", label: "Panjang ruang", quantity: "m", group: "room" },
     { kind: "number", name: "widthM", label: "Lebar ruang", quantity: "m", group: "room" },
     { kind: "number", name: "ceilingM", label: "Tinggi plafon", quantity: "m", group: "room" },
-    { kind: "number", name: "earM", label: "Tinggi telinga", quantity: "m", group: "room", hint: "Duduk 1,2 m; berdiri 1,7 m." },
+    { kind: "number", name: "earM", label: "Tinggi telinga", quantity: "m", group: "room", hint: "Duduk 1,2 m (3,9 ft), berdiri 1,7 m (5,6 ft)." },
     { kind: "number", name: "dispersionDeg", label: "Sudut dispersi", unit: "°", group: "speaker" },
     {
       kind: "select",
@@ -51,7 +51,7 @@ export const ceilingSpeaker = defineCalc({
   }),
   diagram: (i, o, u) => {
     if (!o.valid) return null;
-    const pad = Math.min(o.coverageDiameterM / 2, Math.max(i.lengthM, i.widthM) * 0.15);
+    const pad = Math.max(0.3, o.coverageDiameterM / 2 - Math.min(o.actualSpacingXM, o.actualSpacingYM) / 2 + 0.2);
     const v = viewport({ minX: -pad, maxX: i.lengthM + pad, minY: -pad, maxY: i.widthM + pad });
     const s: Shape[] = [...gridBg()];
     s.push({ kind: "rect", x: v.x(0), y: v.y(i.widthM), w: i.lengthM * v.s, h: i.widthM * v.s, tone: "line", fill: "surface", sw: 2 });

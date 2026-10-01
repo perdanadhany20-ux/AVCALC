@@ -11,7 +11,9 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "pro:grant": "tsx --env-file=.env.local scripts/pro-grant.ts"
+    "pro:grant": "tsx --env-file=.env.local scripts/pro-grant.ts",
+    "test:rls": "supabase test db",
+    "test:rls:local": "bash scripts/ci/test-rls-local.sh"
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.2.5",
