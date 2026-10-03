@@ -82,7 +82,7 @@ Pembayaran di luar scope. `/upgrade` berisi tombol "Hubungi kami" (mailto ke `CO
 3. Buka project, tekan **Ekspor PDF**: PDF bertanda air.
 4. `pnpm pro:grant <email> 1`, unggah logo dan isi nama perusahaan di `/settings`, lalu ekspor ulang: PDF bermerek tanpa tanda air.
 5. Di halaman project, **Buat link berbagi**, lalu buka link di jendela incognito (tanpa login).
-6. `pnpm test:rls`: user A tidak bisa membaca project user B, dan seterusnya (19 assertion).
+6. `pnpm test:rls`: user A tidak bisa membaca project user B, dan seterusnya (22 assertion).
 
 ## Struktur kode
 

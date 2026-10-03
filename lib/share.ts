@@ -31,7 +31,8 @@ export async function loadSharedProject(slug: string): Promise<SharedProject | n
 
   const { data: rooms } = await db.from("rooms").select("*, calculations(*)").eq("project_id", project.id).order("created_at");
   let logoUrl: string | null = null;
-  if (owner?.logo_path) {
+  // Service role melewati RLS storage: pastikan logo berada di folder milik pemilik project.
+  if (owner?.logo_path?.startsWith(`${owner.id}/`)) {
     const { data } = await db.storage.from("logos").createSignedUrl(owner.logo_path, 3600);
     logoUrl = data?.signedUrl ?? null;
   }

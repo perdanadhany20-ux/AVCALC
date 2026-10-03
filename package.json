@@ -45,5 +45,10 @@
     "tsx": "^4.20.3",
     "typescript": "^5.8.3",
     "vitest": "^3.2.4"
+  },
+  "pnpm": {
+    "overrides": {
+      "postcss@<8.5.23": "^8.5.23"
+    }
   }
 }

@@ -19,7 +19,7 @@ Wajib sebelum commit: lint, typecheck, test, build bersih.
 - `app/projects/actions.ts`: semua server action project, ruang, kalkulasi, dan share.
 - `lib/share.ts`: baca halaman share dengan service role setelah validasi slug.
 - `supabase/migrations/20260927000000_init.sql`: skema, RLS, trigger batas gratis, bucket logos.
-- `supabase/tests/rls.test.sql`: 19 assertion RLS.
+- `supabase/tests/rls.test.sql`: 22 assertion RLS.
 
 ## Aturan
 - Satuan internal selalu metrik. Toggle imperial hanya untuk tampilan (`lib/units.ts`). URL query menyimpan nilai metrik non-default.

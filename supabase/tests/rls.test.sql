@@ -1,7 +1,7 @@
 -- Test RLS. Jalankan: supabase test db
 begin;
 create extension if not exists pgtap with schema extensions;
-select plan(19);
+select plan(22);
 
 -- User A dan B
 insert into auth.users (id, email, raw_user_meta_data) values
@@ -30,6 +30,8 @@ select throws_ok($$ insert into public.projects (name) values ('Project kedua') 
 -- Tidak bisa menaikkan plan sendiri
 select throws_ok($$ update public.profiles set plan = 'pro' where id = auth.uid() $$, '42501', null, 'user tidak bisa mengubah plan sendiri');
 select lives_ok($$ update public.profiles set company_name = 'PT A' where id = auth.uid() $$, 'user bisa mengubah nama perusahaan');
+select lives_ok($$ update public.profiles set logo_path = '11111111-1111-1111-1111-111111111111/logo-1.png' where id = auth.uid() $$, 'user bisa memakai logo di foldernya sendiri');
+select throws_ok($$ update public.profiles set logo_path = '22222222-2222-2222-2222-222222222222/logo-1.png' where id = auth.uid() $$, '23514', null, 'user tidak bisa memakai logo milik user lain');
 -- Share link hanya untuk Pro
 select throws_ok($$ insert into public.share_links (project_id, slug) values ('aaaaaaaa-0000-0000-0000-000000000001', 'AbCdEf1234') $$, '42501', null, 'user free tidak bisa membuat share link');
 
@@ -50,6 +52,7 @@ select is((select name from public.projects where id = 'aaaaaaaa-0000-0000-0000-
 -- ───── Anonim tidak punya akses tabel ─────
 set local role anon;
 select throws_ok($$ select * from public.projects $$, '42501', null, 'anon tidak bisa membaca projects');
+select throws_ok($$ select public.is_pro('11111111-1111-1111-1111-111111111111') $$, '42501', null, 'anon tidak bisa memanggil is_pro');
 reset role;
 
 -- ───── Setelah Pro: project kedua & share link diizinkan ─────
