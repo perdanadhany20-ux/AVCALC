@@ -1,6 +1,6 @@
 # AVCalc: konteks untuk Claude Code
 
-Kalkulator desain ruang AV (Next.js 15 + Supabase). Spec asli: 6 kalkulator gratis tanpa login + tier Pro (project, PDF bermerek, share link). Fase 1–6 sudah selesai, lihat `git log`.
+Kalkulator desain ruang AV (Next.js 15 + Supabase). Spec asli: `docs/prompts/04-av-design-calculators.md` (6 kalkulator gratis tanpa login + tier Pro (project, PDF bermerek, share link)). Prompt tiga platform lain ada di `docs/prompts/`, bukan bagian repo ini. Fase 1–6 sudah selesai, lihat `git log`.
 
 ## Perintah
 - `pnpm dev` | `pnpm build` | `pnpm lint` | `pnpm typecheck` | `pnpm test`
